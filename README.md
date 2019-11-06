@@ -90,11 +90,84 @@ These are very rough typings. Contributions are welcomed.
 
 ## Progress
 
+### Packages
+
+#### DEPLOYMENT
+
+-   [x] @keystonejs/keystone
+-   [x] @keystonejs/fields
+
+#### APPS
+
+-   [ ] @keystonejs/app-admin-ui
+-   [ ] @keystonejs/app-next
+-   [ ] @keystonejs/app-nuxt
+-   [ ] @keystonejs/app-static
+
+        FIELD TYPES
+
+-   [ ] @keystonejs/fields-auto-increment
+-   [ ] @keystonejs/field-content
+-   [ ] @keystonejs/fields-datetime-utc
+-   [ ] @keystonejs/fields-markdown
+-   [ ] @keystonejs/fields-mongoid
+-   [ ] @keystonejs/fields-wysiwyg-tinymce
+
+        FIELD ADAPTERS
+
+-   [ ] @keystonejs/file-adapters
+-   [ ] @keystonejs/oembed-adapters
+
+        AUTHENTICATION STRATEGIES
+
+-   [x] @keystonejs/auth-password
+-   [ ] @keystonejs/auth-passport
+
+#### UTILITIES
+
+-   [x] @keystonejs/list-plugins
+-   [ ] @keystonejs/apollo-helpers
+-   [ ] @create-keystone-app
+-   [ ] @keystonejs/email
+-   [ ] @keystonejs/logger
+-   [ ] @keystonejs/session
+-   [ ] @keystonejs/test-utils
+
+#### DATABASE ADAPTERS
+
+-   [x] @keystonejs/adapter-knex
+-   [x] @keystonejs/adapter-mongoose
+
+### By features
+
+-   [ ] Keystone (in progress)
+    -   [ ] apps
+        -   [ ] admin
+        -   [ ] graphql
+        -   [ ] nextjs
+        -   [ ] nuxtjs
+        -   [ ] static app
+    -   [ ] plugins (in progress)
+    -   [ ] adapters
+-   [ ] createList
+
+    -   [x] fields (simple union)
+    -   [ ] adapter
+    -   [ ] hooks
+
 -   [ ] Authentication Strategies
     -   [x] password
     -   [ ] passport
--   [x] List (simple unions)
--   [x] Mongoose Adapter
--   [x] Knex Adapter
+-   [ ] Access Control
+-   [ ] Query validation
+-   [ ] hooks validation
+-   [ ] Adapters
+-   [] Database adapters
+    -   [ ] Mongoose Adapter:
+        -   [x] connection
+        -   [ ] listAdapterClass
+    -   [ ] Knex Adapter
+        -   [x] connection
+        -   [ ]listAdapterClass
 -   [x] List plugins
 -   [x] File Adapter
