@@ -4,7 +4,7 @@ import { PasswordAuthStrategy } from '@keystonejs/auth-password';
 import { GraphQLApp } from '@keystonejs/app-graphql';
 import { AdminUIApp } from '@keystonejs/app-admin-ui';
 import { KnexAdapter as Adapter } from '@keystonejs/adapter-knex';
-import { Text, Checkbox, Password } from '@keystonejs/fields';
+import { Text, Checkbox, Password, AutoIncrement, CalendarDay } from '@keystonejs/fields';
 import { NextApp } from '@keystonejs/app-next';
 import { StaticApp } from '@keystonejs/app-static';
 
@@ -19,12 +19,20 @@ keystone.createList('Test', {
 });
 keystone.createList('Test', {
     fields: {
-        name: { type: Text },
+        autoincrement: { type: AutoIncrement, gqlType: 'ID' },
+        calendar: {
+            type: CalendarDay,
+            format: 'Do MMMM YYYY',
+            yearRangeFrom: 1901,
+            yearRangeTo: 2018,
+            yearPickerType: 'auto',
+        },
         email: { type: Text, isUnique: true },
         isAdmin: { type: Checkbox },
         password: { type: Password },
     },
 });
+
 keystone.createList('Test', {
     fields: {},
     access: {
