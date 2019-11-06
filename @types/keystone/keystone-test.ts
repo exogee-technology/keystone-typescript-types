@@ -4,7 +4,7 @@ import { PasswordAuthStrategy } from '@keystonejs/auth-password';
 import { GraphQLApp } from '@keystonejs/app-graphql';
 import { AdminUIApp } from '@keystonejs/app-admin-ui';
 import { KnexAdapter as Adapter } from '@keystonejs/adapter-knex';
-import { Text, Checkbox, Password, AutoIncrement, CalendarDay } from '@keystonejs/fields';
+import { Text, Checkbox, Password, AutoIncrement, CalendarDay, Integer } from '@keystonejs/fields';
 
 const keystone = new Keystone({
     name: 'LiveCorp Backend',
@@ -32,12 +32,22 @@ keystone.createList('Test', {
 });
 
 keystone.createList('Test', {
-    fields: {},
+    fields: {
+        name: {
+            type: Integer,
+            hooks: {
+                afterChange: console.info,
+            },
+        },
+    },
     access: {
         create: true,
         read: true,
         update: false,
         delete: false,
+    },
+    hooks: {
+        resolveInput: async ({ context }) => console.log(context),
     },
 });
 keystone.createList('Test', {
