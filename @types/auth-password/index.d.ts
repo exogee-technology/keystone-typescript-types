@@ -1,5 +1,5 @@
 declare module '@keystonejs/auth-password' {
-    import { Keystone } from '@keystonejs/keystone';
+    import { Keystone, BaseAuthStrategy } from '@keystonejs/keystone';
 
     export interface PasswordAuthStrategyConfig {
         identityField: string;
@@ -13,12 +13,8 @@ declare module '@keystonejs/auth-password' {
         message: string;
     }
 
-    export class PasswordAuthStrategy {
-        constructor(
-            keystone: Keystone,
-            listKey: string,
-            config: PasswordAuthStrategyConfig
-        );
+    export class PasswordAuthStrategy implements BaseAuthStrategy {
+        constructor(keystone: Keystone, listKey: string, config: PasswordAuthStrategyConfig);
         authType: string;
 
         getList(): any; // TODO

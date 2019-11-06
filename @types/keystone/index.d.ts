@@ -3,10 +3,24 @@ declare module '@keystonejs/keystone' {
     import { FieldType } from '@keystonejs/fields';
 
     export interface BaseKeystoneAdapter {}
+    export interface BaseAuthStrategy {}
 
     export interface KeystoneOptions {
         name: string;
         adapter: BaseKeystoneAdapter;
+        adapters?: {
+            [key: string]: BaseKeystoneAdapter;
+        };
+        defaultAdapter?: string;
+        onConnect?: () => void;
+        cookieSecret?: string;
+        cookieMaxAge?: number;
+        secureCookies?: boolean;
+        sessionStore?: any; // TODO: bring in express session types
+        schemaNames?: string[];
+        queryLimits?: {
+            maxTotalResults?: number;
+        };
     }
 
     export interface KeystonePrepareResult {
@@ -55,14 +69,17 @@ declare module '@keystonejs/keystone' {
         mutations?: GraphQLExtension[];
     }
 
-    export class Keystone {
+    export class Keystone<ListNames extends string = string> {
         constructor(options: KeystoneOptions);
 
-        createAuthStrategy(options: { type: any; list: string }): any; // TODO
-        createList(name: string, schema: ListSchema): void;
+        createAuthStrategy(options: { type: BaseAuthStrategy; list: ListNames; config?: any }): any; // TODO
+        createList(name: ListNames, schema: ListSchema): void;
         extendGraphQLSchema(schema: GraphQLExtensionSchema): void;
 
         prepare(options: { apps: Array<any>; dev: boolean }): Promise<KeystonePrepareResult>;
+        executeQuery<Output = any>(query: string, config: { variables: any; context: any }): Output;
         connect(): Promise<void>;
+        disconnect(): Promise<void>;
+        createItems<Item>(items: { [key in ListNames]: Item[] }): Promise<void>;
     }
 }
