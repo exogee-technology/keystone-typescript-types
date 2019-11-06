@@ -39,13 +39,7 @@ declare module '@keystonejs/keystone' {
         isUnique?: boolean;
     }
 
-    type IfMatchingType<
-        Proposed extends unknown,
-        Field extends FieldType,
-        Type extends {}
-    > = ClassOf<Proposed> extends FieldType ? Type : never;
-
-    export interface AutoIncrementOptions {
+    export interface AutoIncrementOptions extends BaseFieldOptions {
         gqlType?: 'Int' | 'ID';
     }
 
@@ -56,52 +50,51 @@ declare module '@keystonejs/keystone' {
         yearPickerType?: string;
     }
 
-    export interface ContentOptions {
+    export interface ContentOptions extends BaseFieldOptions {
         blocks: any[]; // FIXME: describe the type of block using https://www.keystonejs.com/keystonejs/field-content/
     }
     export interface DateTimeOptions extends CalendarDayOptions {
         knexOptions: any; // FIXME: provide a more precise type from the knex adaptor
     }
-    export interface DecimalOptions {}
-    export interface FileOptions {
+    export interface FileOptions extends BaseFieldOptions {
         route?: string;
         adapter?: any; // FIXME: provide a file adapter type
     }
 
-    export interface LocationOptions {
+    export interface LocationOptions extends BaseFieldOptions {
         googleMapsKey: string;
     }
 
-    export interface OEmbedOptions {
+    export interface OEmbedOptions extends BaseFieldOptions {
         adapter: any; // FIXME: use eombed adapters type
     }
 
-    export interface PasswordOptions {
+    export interface PasswordOptions extends BaseFieldOptions {
         minLength: number;
         rejectCommon: boolean;
         workFactor: number;
     }
 
-    export interface RelationshipOptions {
+    export interface RelationshipOptions extends BaseFieldOptions {
         // TODO: add a more type safe solution if possible
         ref: string;
         many: boolean;
     }
-    export interface SelectOptions {
+    export interface SelectOptions extends BaseFieldOptions {
         // TODO: use a named type
         options: string | string[] | { value: string; label: string }[];
     }
-    export interface SlugOptions<FieldNames extends string> {
+    export interface SlugOptions<FieldNames extends string> extends BaseFieldOptions {
         from: string;
         //Todo:  resolved data is of the same type as the current object list. Investigate if we can at least provide the available keys via a generic.
         generate: (opts: { resolvedData: KeyValues<FieldNames> }) => string;
     }
 
-    export interface UnsplashOptions {
+    export interface UnsplashOptions extends BaseFieldOptions {
         accessKey: string;
         secretKey: string;
     }
-    export interface UuidOptions {
+    export interface UuidOptions extends BaseFieldOptions {
         // do we have other possible values here ?
         caseTo: 'upper' | 'lower';
     }
@@ -116,7 +109,6 @@ declare module '@keystonejs/keystone' {
         | CalendarDayOptions
         | ContentOptions
         | DateTimeOptions
-        | DecimalOptions
         | FileOptions
         | LocationOptions
         | OEmbedOptions
