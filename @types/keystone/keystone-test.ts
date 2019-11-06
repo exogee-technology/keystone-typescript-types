@@ -53,7 +53,12 @@ keystone.createList('Test', {
     },
 });
 keystone.createList('Test', {
-    fields: {},
+    fields: {
+        name: {
+            type: Integer,
+            access: ({ authentication: { item } }) => item,
+        },
+    },
     access: {
         create: () => true,
         read: () => true,

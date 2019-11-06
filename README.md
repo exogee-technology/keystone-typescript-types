@@ -158,7 +158,7 @@ These are very rough typings. Contributions are welcomed.
 -   [ ] Authentication Strategies
     -   [x] password
     -   [ ] passport
--   [ ] Access Control
+-   [x] Access Control
 -   [ ] Query validation
 -   [x] hooks validation
 -   [ ] Adapters
