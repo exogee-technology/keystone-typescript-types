@@ -13,7 +13,7 @@ declare module '@keystonejs/auth-password' {
         message: string;
     }
 
-    export class PasswordAuthStrategy implements BaseAuthStrategy {
+    export class PasswordAuthStrategy extends BaseAuthStrategy {
         constructor(keystone: Keystone, listKey: string, config: PasswordAuthStrategyConfig);
         authType: string;
 

@@ -2,8 +2,9 @@ declare module '@keystonejs/keystone' {
     import { RequestHandler } from 'express';
     import { FieldType } from '@keystonejs/fields';
 
-    export interface BaseKeystoneAdapter {}
-    export interface BaseAuthStrategy {}
+    export class BaseKeystoneAdapter {}
+    export class BaseAuthStrategy {}
+    export class BaseApp {}
 
     export interface KeystoneOptions {
         name: string;
@@ -76,7 +77,7 @@ declare module '@keystonejs/keystone' {
         createList(name: ListNames, schema: ListSchema): void;
         extendGraphQLSchema(schema: GraphQLExtensionSchema): void;
 
-        prepare(options: { apps: Array<any>; dev: boolean }): Promise<KeystonePrepareResult>;
+        prepare(options: { apps?: Array<BaseApp>; dev?: boolean }): Promise<KeystonePrepareResult>;
         executeQuery<Output = any>(query: string, config: { variables: any; context: any }): Output;
         connect(): Promise<void>;
         disconnect(): Promise<void>;

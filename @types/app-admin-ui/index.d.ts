@@ -1,5 +1,5 @@
 declare module '@keystonejs/app-admin-ui' {
-    import { BaseAuthStrategy } from '@keystonejs/keystone';
+    import { BaseAuthStrategy, BaseApp } from '@keystonejs/keystone';
     export interface AdminUIOptions<ListNames extends string = string, UserType extends {} = any> {
         adminPath?: string;
         apiPath?: string;
@@ -13,7 +13,10 @@ declare module '@keystonejs/app-admin-ui' {
         }) => boolean;
     }
 
-    export class AdminUIApp<ListNames extends string = string, UserType extends {} = any> {
+    export class AdminUIApp<
+        ListNames extends string = string,
+        UserType extends {} = any
+    > extends BaseApp {
         constructor(options?: AdminUIOptions<ListNames, UserType>);
     }
 }

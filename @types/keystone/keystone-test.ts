@@ -1,10 +1,12 @@
 import express from 'express';
-import { Keystone } from '@keystonejs/keystone';
+import { Keystone, BaseApp } from '@keystonejs/keystone';
 import { PasswordAuthStrategy } from '@keystonejs/auth-password';
 import { GraphQLApp } from '@keystonejs/app-graphql';
 import { AdminUIApp } from '@keystonejs/app-admin-ui';
 import { KnexAdapter as Adapter } from '@keystonejs/adapter-knex';
 import { Text, Checkbox, Password } from '@keystonejs/fields';
+import { NextApp } from '@keystonejs/app-next';
+import { StaticApp } from '@keystonejs/app-static';
 
 const keystone = new Keystone({
     name: 'LiveCorp Backend',
@@ -65,7 +67,18 @@ const authStrategy = keystone.createAuthStrategy({
     list: 'User',
 });
 
-const apps = [new GraphQLApp(), new AdminUIApp({ enableDefaultRoute: true, authStrategy })];
+const apps: BaseApp[] = [
+    new GraphQLApp(),
+    new AdminUIApp({ enableDefaultRoute: true, authStrategy }),
+    new NextApp({
+        dir: './hello',
+    }),
+    new StaticApp({
+        path: '/',
+        src: 'public',
+        fallback: 'index.html',
+    }),
+];
 
 keystone
     .prepare({ apps, dev: process.env.NODE_ENV !== 'production' })

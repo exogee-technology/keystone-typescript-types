@@ -10,7 +10,7 @@ declare module '@keystonejs/adapter-mongoose' {
     export interface MongooseAdaptorOptions {
         mongoUri: string;
     }
-    export class MoogooseAdapter implements BaseKeystoneAdapter {
+    export class MoogooseAdapter extends BaseKeystoneAdapter {
         constructor(options?: MongooseAdaptorOptions);
 
         public disconnect(): void;
