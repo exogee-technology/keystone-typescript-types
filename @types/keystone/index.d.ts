@@ -29,6 +29,7 @@ declare module '@keystonejs/keystone' {
 
     export type AccessCallback = (context: AuthenticationContext) => boolean | GraphQLWhereClause;
 
+    export type Plugin = any; // TODO: investigate what a plugin is
     export interface ListSchema {
         fields: { [fieldName: string]: FieldOptions };
         access?:
@@ -40,6 +41,7 @@ declare module '@keystonejs/keystone' {
                   delete?: boolean | AccessCallback;
                   auth?: boolean;
               };
+        plugins?: Plugin[];
     }
 
     export interface GraphQLExtension {
