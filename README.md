@@ -87,3 +87,14 @@ And you should be good to go.
 ## Contributing
 
 These are very rough typings. Contributions are welcomed.
+
+## Progress
+
+-   [ ] Authentication Strategies
+    -   [x] password
+    -   [ ] passport
+-   [x] List (simple unions)
+-   [x] Mongoose Adapter
+-   [x] Knex Adapter
+-   [x] List plugins
+-   [x] File Adapter
