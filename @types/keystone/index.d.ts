@@ -1,6 +1,10 @@
 declare module '@keystonejs/keystone' {
     import { RequestHandler } from 'express';
-    import { FieldType } from '@keystonejs/fields';
+    import { FieldType, AutoIncrement } from '@keystonejs/fields';
+
+    type ClassOf<Instance> = {
+        new (...args: any[]): Instance;
+    };
 
     export interface BaseKeystoneAdapter {}
 
@@ -13,12 +17,6 @@ declare module '@keystonejs/keystone' {
         middlewares: RequestHandler[];
     }
 
-    export interface FieldOptions {
-        type: FieldType;
-        isRequired?: boolean;
-        isUnique?: boolean;
-    }
-
     export interface AuthenticationContext {
         authentication: { item: any }; // TODO
     }
@@ -29,8 +27,34 @@ declare module '@keystonejs/keystone' {
 
     export type AccessCallback = (context: AuthenticationContext) => boolean | GraphQLWhereClause;
 
-    export interface ListSchema {
-        fields: { [fieldName: string]: FieldOptions };
+    /**
+     * Lists
+     */
+    export interface BaseFieldOptions {
+        isRequired?: boolean;
+        isUnique?: boolean;
+    }
+
+    export interface AutoIncrementOptions extends BaseFieldOptions {
+        type: AutoIncrement;
+        gqlType: 'Int' | 'ID';
+    }
+
+    export interface CalendarDayOptions extends BaseFieldOptions {
+        format: string;
+        yearRangeFrom: number;
+        yearRangeTo: number;
+        yearPickerType: string;
+    }
+
+    export interface NotImplementedFields extends BaseFieldOptions {
+        type: FieldType;
+    }
+
+    export type FieldOptions = AutoIncrementOptions | CalendarDayOptions | NotImplementedFields;
+
+    export interface ListSchema<Fields extends string = string> {
+        fields: { [fieldName in Fields]: FieldOptions };
         access?:
             | boolean
             | {
@@ -57,7 +81,7 @@ declare module '@keystonejs/keystone' {
         constructor(options: KeystoneOptions);
 
         createAuthStrategy(options: { type: any; list: string }): any; // TODO
-        createList(name: string, schema: ListSchema): void;
+        createList<Fields extends string = string>(name: string, schema: ListSchema<Fields>): void;
         extendGraphQLSchema(schema: GraphQLExtensionSchema): void;
 
         prepare(options: { apps: Array<any>; dev: boolean }): Promise<KeystonePrepareResult>;
