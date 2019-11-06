@@ -170,4 +170,4 @@ These are very rough typings. Contributions are welcomed.
         -   [x] connection
         -   [ ]listAdapterClass
 -   [x] List plugins
--   [x] File Adapter
+-   [] File Adapter

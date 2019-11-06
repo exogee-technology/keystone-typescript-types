@@ -4,4 +4,5 @@ export const adapter = new KnexAdapter({
     knexOptions: {
         connection: {},
     },
+    schemaName: 'whatever',
 });

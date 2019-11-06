@@ -9,11 +9,26 @@ declare module '@keystonejs/keystone' {
 
     type KeyValues<Keys extends string = any, Values = any> = { [key in Keys]: Values };
 
-    export interface BaseKeystoneAdapter {}
+    export class BaseKeystoneAdapter {}
+    export class BaseAuthStrategy {}
+    export class BaseApp {}
 
     export interface KeystoneOptions {
         name: string;
         adapter: BaseKeystoneAdapter;
+        adapters?: {
+            [key: string]: BaseKeystoneAdapter;
+        };
+        defaultAdapter?: string;
+        onConnect?: () => void;
+        cookieSecret?: string;
+        cookieMaxAge?: number;
+        secureCookies?: boolean;
+        sessionStore?: any; // TODO: bring in express session types
+        schemaNames?: string[];
+        queryLimits?: {
+            maxTotalResults?: number;
+        };
     }
 
     export interface KeystonePrepareResult {
@@ -145,14 +160,17 @@ declare module '@keystonejs/keystone' {
         mutations?: GraphQLExtension[];
     }
 
-    export class Keystone {
+    export class Keystone<ListNames extends string = string> {
         constructor(options: KeystoneOptions);
 
-        createAuthStrategy(options: { type: any; list: string }): any; // TODO
+        createAuthStrategy(options: { type: BaseAuthStrategy; list: ListNames; config?: any }): any; // TODO
         createList<Fields extends string = string>(name: string, schema: ListSchema<Fields>): void;
         extendGraphQLSchema(schema: GraphQLExtensionSchema): void;
 
-        prepare(options: { apps: Array<any>; dev: boolean }): Promise<KeystonePrepareResult>;
+        prepare(options: { apps?: Array<BaseApp>; dev?: boolean }): Promise<KeystonePrepareResult>;
+        executeQuery<Output = any>(query: string, config: { variables: any; context: any }): Output;
         connect(): Promise<void>;
+        disconnect(): Promise<void>;
+        createItems<Item>(items: { [key in ListNames]: Item[] }): Promise<void>;
     }
 }

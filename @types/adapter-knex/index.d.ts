@@ -11,7 +11,7 @@ declare module '@keystonejs/adapter-knex' {
         knexOptions?: Config;
         schemaName?: string;
     }
-    export class KnexAdapter implements BaseKeystoneAdapter {
+    export class KnexAdapter extends BaseKeystoneAdapter {
         constructor(options?: KnexAdaptorOptions);
 
         public disconnect(): void;
