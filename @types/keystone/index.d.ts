@@ -26,6 +26,10 @@ declare module '@keystonejs/keystone' {
         secureCookies?: boolean;
         sessionStore?: any; // TODO: bring in express session types
         schemaNames?: string[];
+        defaultAcces?: {
+            list?: boolean;
+            field?: boolean;
+        };
         queryLimits?: {
             maxTotalResults?: number;
         };
@@ -44,6 +48,17 @@ declare module '@keystonejs/keystone' {
     }
 
     export type AccessCallback = (context: AuthenticationContext) => boolean | GraphQLWhereClause;
+
+    export type Access =
+        | boolean // FIXME: it seems to be an access callback instead
+        | AccessCallback
+        | {
+              read?: boolean | GraphQLWhereClause | AccessCallback;
+              update?: boolean | AccessCallback;
+              create?: boolean | AccessCallback;
+              delete?: boolean | AccessCallback;
+              auth?: boolean;
+          };
 
     export type Plugin = any; // TODO: investigate what a plugin is
 
@@ -108,6 +123,7 @@ declare module '@keystonejs/keystone' {
         isRequired?: boolean;
         isUnique?: boolean;
         hooks?: Hooks;
+        access?: Access;
     }
 
     export interface AutoIncrementOptions extends BaseFieldOptions {
@@ -189,15 +205,8 @@ declare module '@keystonejs/keystone' {
     /** Hooks */
     export interface ListSchema<Fields extends string = string> {
         fields: { [fieldName in Fields]: AllFieldsOptions };
-        access?:
-            | boolean
-            | {
-                  read?: boolean | GraphQLWhereClause | AccessCallback;
-                  update?: boolean | AccessCallback;
-                  create?: boolean | AccessCallback;
-                  delete?: boolean | AccessCallback;
-                  auth?: boolean;
-              };
+        listAdapterClass?: any; // TODO: investigate if a specific type can be provided
+        access?: Access;
         plugins?: Plugin[];
         hooks?: Hooks;
     }
