@@ -12,13 +12,52 @@ const keystone = new Keystone({
 });
 
 keystone.createList('Test', {
+    fields: {},
+    access: true,
+});
+keystone.createList('Test', {
     fields: {
         name: { type: Text },
         email: { type: Text, isUnique: true },
         isAdmin: { type: Checkbox },
         password: { type: Password },
     },
-    access: true,
+});
+keystone.createList('Test', {
+    fields: {},
+    access: {
+        create: true,
+        read: true,
+        update: false,
+        delete: false,
+    },
+});
+keystone.createList('Test', {
+    fields: {},
+    access: {
+        create: () => true,
+        read: () => true,
+        update: () => false,
+        delete: () => false,
+        auth: true,
+    },
+});
+
+keystone.extendGraphQLSchema({});
+keystone.extendGraphQLSchema({
+    types: ['hi'],
+    queries: [
+        {
+            schema: 'some schema',
+            resolver: () => {},
+        },
+    ],
+    mutations: [
+        {
+            schema: 'some schema',
+            resolver: () => {},
+        },
+    ],
 });
 
 const authStrategy = keystone.createAuthStrategy({
@@ -26,10 +65,7 @@ const authStrategy = keystone.createAuthStrategy({
     list: 'User',
 });
 
-const apps = [
-    new GraphQLApp(),
-    new AdminUIApp({ enableDefaultRoute: true, authStrategy }),
-];
+const apps = [new GraphQLApp(), new AdminUIApp({ enableDefaultRoute: true, authStrategy })];
 
 keystone
     .prepare({ apps, dev: process.env.NODE_ENV !== 'production' })

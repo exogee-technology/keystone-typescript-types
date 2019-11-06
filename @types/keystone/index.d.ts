@@ -27,9 +27,7 @@ declare module '@keystonejs/keystone' {
         [field: string]: any; // TODO: Can we make this generic?
     }
 
-    export type AccessCallback = (
-        context: AuthenticationContext
-    ) => boolean | GraphQLWhereClause;
+    export type AccessCallback = (context: AuthenticationContext) => boolean | GraphQLWhereClause;
 
     export interface ListSchema {
         fields: { [fieldName: string]: FieldOptions };
@@ -44,16 +42,25 @@ declare module '@keystonejs/keystone' {
               };
     }
 
+    export interface GraphQLExtension {
+        schema: string;
+        resolver: Function; // TODO
+    }
+
+    export interface GraphQLExtensionSchema {
+        types?: string[];
+        queries?: GraphQLExtension[];
+        mutations?: GraphQLExtension[];
+    }
+
     export class Keystone {
         constructor(options: KeystoneOptions);
 
         createAuthStrategy(options: { type: any; list: string }): any; // TODO
         createList(name: string, schema: ListSchema): void;
+        extendGraphQLSchema(schema: GraphQLExtensionSchema): void;
 
-        prepare(options: {
-            apps: Array<any>;
-            dev: boolean;
-        }): Promise<KeystonePrepareResult>;
+        prepare(options: { apps: Array<any>; dev: boolean }): Promise<KeystonePrepareResult>;
         connect(): Promise<void>;
     }
 }
