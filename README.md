@@ -99,10 +99,10 @@ These are very rough typings. Contributions are welcomed.
 
 #### APPS
 
--   [ ] @keystonejs/app-admin-ui
--   [ ] @keystonejs/app-next
--   [ ] @keystonejs/app-nuxt
--   [ ] @keystonejs/app-static
+-   [x] @keystonejs/app-admin-ui
+-   [x] @keystonejs/app-next
+-   [x] @keystonejs/app-nuxt
+-   [x] @keystonejs/app-static
 
         FIELD TYPES
 
@@ -144,23 +144,23 @@ These are very rough typings. Contributions are welcomed.
     -   [ ] apps
         -   [ ] admin
         -   [ ] graphql
-        -   [ ] nextjs
-        -   [ ] nuxtjs
-        -   [ ] static app
+        -   [x] nextjs
+        -   [x] nuxtjs
+        -   [x] static app
     -   [ ] plugins (in progress)
     -   [ ] adapters
 -   [ ] createList
 
     -   [x] fields (simple union)
     -   [ ] adapter
-    -   [ ] hooks
+    -   [x] hooks
 
 -   [ ] Authentication Strategies
     -   [x] password
     -   [ ] passport
 -   [ ] Access Control
 -   [ ] Query validation
--   [ ] hooks validation
+-   [x] hooks validation
 -   [ ] Adapters
 -   [] Database adapters
     -   [ ] Mongoose Adapter:
