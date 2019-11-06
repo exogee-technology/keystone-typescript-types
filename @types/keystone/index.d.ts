@@ -46,6 +46,60 @@ declare module '@keystonejs/keystone' {
     export type AccessCallback = (context: AuthenticationContext) => boolean | GraphQLWhereClause;
 
     export type Plugin = any; // TODO: investigate what a plugin is
+
+    export interface ResolveInputHooksOptions<Record extends {} = any> {
+        resolvedData: any;
+        originalInput: any; // todo: check
+        existingItem: Record;
+        updatedItem: Record;
+        context: any; // TODO: use apollo context
+        addFieldValidationError: (error: string) => any; // not clear in the documentation
+        list: {
+            query: (
+                args: any,
+                context: any,
+                options?: { skipAccessControl: boolean }
+            ) => Promise<Record>;
+            queryMany: (
+                args: any,
+                context: any,
+                options?: { skipAccessControl: boolean }
+            ) => Promise<Record[]>;
+            queryManyMeta: (
+                args: any,
+                context: any,
+                options?: { skipAccessControl: boolean }
+            ) => Promise<{ count: number }>;
+            getList: (key: string) => ResolveInputHooksOptions['list']; // TODO: create a List Object and returns it
+        };
+    }
+
+    export type Hooks = Partial<{
+        resolveInput: (
+            opts: Omit<ResolveInputHooksOptions, 'addFieldValidationError' | 'updatedItem'>
+        ) => any; // TODO: return the same shape as resolvedData
+        validateInput: (opts: Omit<ResolveInputHooksOptions, 'updatedItem'>) => void;
+        beforeChange: (opts: Omit<ResolveInputHooksOptions, 'addFieldValidationError'>) => void;
+        afterChange: (
+            opts: Pick<
+                ResolveInputHooksOptions,
+                'updatedItem' | 'existingItem' | 'originalInput' | 'context' | 'list'
+            >
+        ) => void;
+        beforeDelete: (
+            opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list'>
+        ) => void;
+        validateDelete: (
+            opts: Pick<
+                ResolveInputHooksOptions,
+                'existingItem' | 'context' | 'list' | 'addFieldValidationError'
+            >
+        ) => void;
+        afterDelete: (
+            opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list'>
+        ) => void;
+    }>;
+
     /**
      * Lists
      */
@@ -53,6 +107,7 @@ declare module '@keystonejs/keystone' {
         type: FieldType;
         isRequired?: boolean;
         isUnique?: boolean;
+        hooks?: Hooks;
     }
 
     export interface AutoIncrementOptions extends BaseFieldOptions {
@@ -115,10 +170,6 @@ declare module '@keystonejs/keystone' {
         caseTo: 'upper' | 'lower';
     }
 
-    export interface NotImplementedFields extends BaseFieldOptions {
-        type: FieldType;
-    }
-
     export type AllFieldsOptions<FieldNames extends string = string> =
         | BaseFieldOptions
         | AutoIncrementOptions
@@ -135,6 +186,7 @@ declare module '@keystonejs/keystone' {
         | UnsplashOptions
         | UuidOptions;
 
+    /** Hooks */
     export interface ListSchema<Fields extends string = string> {
         fields: { [fieldName in Fields]: AllFieldsOptions };
         access?:
@@ -147,6 +199,7 @@ declare module '@keystonejs/keystone' {
                   auth?: boolean;
               };
         plugins?: Plugin[];
+        hooks?: Hooks;
     }
 
     export interface GraphQLExtension {
