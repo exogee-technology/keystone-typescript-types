@@ -19,6 +19,7 @@
         "@types/express": "^4.17.2",
         "apollo-server": "^2.9.7",
         "keystone": "^4.2.1",
-        "knex": "^0.20.1"
+        "knex": "^0.20.1",
+        "pino": "^5.13.5"
     }
 }

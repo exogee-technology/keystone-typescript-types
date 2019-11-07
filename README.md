@@ -128,9 +128,9 @@ These are very rough typings. Contributions are welcomed.
 -   [x] @keystonejs/list-plugins
 -   [ ] @keystonejs/apollo-helpers
 -   [ ] @create-keystone-app
--   [ ] @keystonejs/email
--   [ ] @keystonejs/logger
--   [ ] @keystonejs/session
+-   [x] @keystonejs/email
+-   [x] @keystonejs/logger
+-   [x] @keystonejs/session
 -   [ ] @keystonejs/test-utils
 
 #### DATABASE ADAPTERS
@@ -150,24 +150,22 @@ These are very rough typings. Contributions are welcomed.
     -   [ ] plugins (in progress)
     -   [ ] adapters
 -   [ ] createList
-
     -   [x] fields (simple union)
     -   [ ] adapter
     -   [x] hooks
-
 -   [ ] Authentication Strategies
     -   [x] password
     -   [ ] passport
 -   [x] Access Control
--   [ ] Query validation
+-   [x] Query validation
 -   [x] hooks validation
 -   [ ] Adapters
 -   [] Database adapters
     -   [ ] Mongoose Adapter:
         -   [x] connection
-        -   [ ] listAdapterClass
+        -   [x] listAdapterClass
     -   [ ] Knex Adapter
         -   [x] connection
-        -   [ ]listAdapterClass
+        -   [x]listAdapterClass
 -   [x] List plugins
 -   [] File Adapter
