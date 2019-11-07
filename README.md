@@ -20,7 +20,7 @@ Then set up Typescript so it knows how to find these types by creating or editin
 {
 	"compilerOptions": {
 		// The rest of your existing
-		"typeRoots": ["node_modules/keystone-typescript-types/@types"]
+		"typeRoots": ["node_modules/keystone-typescript-types/types"]
 	}
 }
 

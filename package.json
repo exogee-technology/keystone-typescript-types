@@ -3,7 +3,7 @@
     "version": "1.0.2-alpha",
     "description": "A work in progress repo to get the types for KeystoneJS 5 ready to contribute to Definitely Typed.",
     "scripts": {
-        "test": "dtslint types"
+        "test": "./test"
     },
     "repository": {
         "type": "git",
