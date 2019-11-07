@@ -5,17 +5,21 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.5
 
+// Because this is a scoped package, without this line Typescript doesn't associate the
+// types with the right package.
+// tslint:disable-next-line:no-single-declare-module
 declare module '@keystonejs/adapter-mongoose' {
     import { BaseKeystoneAdapter } from '@keystonejs/keystone';
 
-    export interface MongooseAdaptorOptions {
+    interface MongooseAdaptorOptions {
         mongoUri: string;
         listAdapterClass?: any;
     }
-    export class MoogooseAdapter extends BaseKeystoneAdapter {
+
+    class MoogooseAdapter extends BaseKeystoneAdapter {
         constructor(options?: MongooseAdaptorOptions);
 
-        public disconnect(): void;
-        public dropDatabase(): any;
+        disconnect(): void;
+        dropDatabase(): any;
     }
 }

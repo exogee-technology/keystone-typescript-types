@@ -5,34 +5,37 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.5
 
+// Because this is a scoped package, without this line Typescript doesn't associate the
+// types with the right package.
+// tslint:disable-next-line:no-single-declare-module
 declare module '@keystonejs/fields' {
-    export class AutoIncrement {}
-    export class CalendarDay {}
-    export class Checkbox {}
-    export class CloudinaryImage {}
-    export class Color {}
-    export class Content {}
-    export class DateTime {}
-    export class DateTimeUtc {}
-    export class Decimal {}
-    export class File {}
-    export class Float {}
-    export class Integer {}
-    export class Location {}
-    export class Markdown {}
-    export class MongoId {}
-    export class OEmbed {}
-    export class Password {}
-    export class Relationship {}
-    export class Select {}
-    export class Slug {}
-    export class Text {}
-    export class Unsplash {}
-    export class Url {}
-    export class Uuid {}
-    export class Wysiwyg {}
+    class AutoIncrement {}
+    class CalendarDay {}
+    class Checkbox {}
+    class CloudinaryImage {}
+    class Color {}
+    class Content {}
+    class DateTime {}
+    class DateTimeUtc {}
+    class Decimal {}
+    class File {}
+    class Float {}
+    class Integer {}
+    class Location {}
+    class Markdown {}
+    class MongoId {}
+    class OEmbed {}
+    class Password {}
+    class Relationship {}
+    class Select {}
+    class Slug {}
+    class Text {}
+    class Unsplash {}
+    class Url {}
+    class Uuid {}
+    class Wysiwyg {}
 
-    export type FieldType =
+    type FieldType =
         | AutoIncrement
         | CalendarDay
         | Checkbox

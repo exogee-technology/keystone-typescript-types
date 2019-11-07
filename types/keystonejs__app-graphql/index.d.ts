@@ -5,14 +5,19 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 3.5
 
+// Because this is a scoped package, without this line Typescript doesn't associate the
+// types with the right package.
+// tslint:disable-next-line:no-single-declare-module
 declare module '@keystonejs/app-graphql' {
-    export type GraphQLValidation = {
-        depthLimit: (limit: number) => any; // TODO: fetch the correc type in apollo server validations
-        definitionLimit: (limit: number) => any; // TODO: fetch the correc type in apollo server validations
-        fieldLimit: (limit: number) => any; // TODO: fetch the correc type in apollo server validations
-    };
+    import { Keystone } from '@keystonejs/keystone';
 
-    export interface IGraphQLAppOptions {
+    interface GraphQLValidation {
+        depthLimit: (limit: number) => any; // TODO: fetch the correct type in apollo server validations
+        definitionLimit: (limit: number) => any; // TODO: fetch the correct type in apollo server validations
+        fieldLimit: (limit: number) => any; // TODO: fetch the correct type in apollo server validations
+    }
+
+    interface GraphQLAppOptions {
         apiPath?: string;
         graphiqlPath?: string;
         schemaName?: string;
@@ -21,9 +26,17 @@ declare module '@keystonejs/app-graphql' {
         };
     }
 
-    export class GraphQLApp {
-        constructor(opts?: IGraphQLAppOptions);
+    interface PrepareMiddlewareOptions {
+        keystone: Keystone;
+        dev?: boolean;
     }
 
-    export const validation: GraphQLValidation;
+    class GraphQLApp {
+        constructor(opts?: GraphQLAppOptions);
+
+        build(): void;
+        prepareMiddleware(options: PrepareMiddlewareOptions): void;
+    }
+
+    const validation: GraphQLValidation;
 }
