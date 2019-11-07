@@ -1,3 +1,5 @@
-import { GraphQLApp } from '@keystonejs/app-graphql';
+import { GraphQLApp, validation } from '@keystonejs/app-graphql';
 
 new GraphQLApp();
+
+validation.depthLimit(1);

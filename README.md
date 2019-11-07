@@ -99,19 +99,10 @@ These are very rough typings. Contributions are welcomed.
 
 #### APPS
 
--   [ ] @keystonejs/app-admin-ui
--   [ ] @keystonejs/app-next
--   [ ] @keystonejs/app-nuxt
--   [ ] @keystonejs/app-static
-
-        FIELD TYPES
-
--   [ ] @keystonejs/fields-auto-increment
--   [ ] @keystonejs/field-content
--   [ ] @keystonejs/fields-datetime-utc
--   [ ] @keystonejs/fields-markdown
--   [ ] @keystonejs/fields-mongoid
--   [ ] @keystonejs/fields-wysiwyg-tinymce
+-   [x] @keystonejs/app-admin-ui
+-   [x] @keystonejs/app-next
+-   [x] @keystonejs/app-nuxt
+-   [x] @keystonejs/app-static
 
         FIELD ADAPTERS
 
@@ -126,12 +117,10 @@ These are very rough typings. Contributions are welcomed.
 #### UTILITIES
 
 -   [x] @keystonejs/list-plugins
--   [ ] @keystonejs/apollo-helpers
--   [ ] @create-keystone-app
--   [ ] @keystonejs/email
--   [ ] @keystonejs/logger
--   [ ] @keystonejs/session
--   [ ] @keystonejs/test-utils
+-   [x] @keystonejs/apollo-helpers
+-   [x] @keystonejs/email
+-   [x] @keystonejs/logger
+-   [x] @keystonejs/session
 
 #### DATABASE ADAPTERS
 
@@ -141,33 +130,30 @@ These are very rough typings. Contributions are welcomed.
 ### By features
 
 -   [ ] Keystone (in progress)
-    -   [ ] apps
-        -   [ ] admin
-        -   [ ] graphql
-        -   [ ] nextjs
-        -   [ ] nuxtjs
-        -   [ ] static app
+    -   [x] apps
+        -   [x] admin
+        -   [x] graphql
+        -   [x] nextjs
+        -   [x] nuxtjs
+        -   [x] static app
     -   [ ] plugins (in progress)
     -   [ ] adapters
 -   [ ] createList
-
     -   [x] fields (simple union)
     -   [ ] adapter
-    -   [ ] hooks
-
+    -   [x] hooks
 -   [ ] Authentication Strategies
     -   [x] password
     -   [ ] passport
--   [ ] Access Control
--   [ ] Query validation
--   [ ] hooks validation
--   [ ] Adapters
--   [] Database adapters
-    -   [ ] Mongoose Adapter:
+-   [x] Access Control
+-   [x] Query validation
+-   [x] hooks validation
+-   [x] Database adapters
+    -   [x] Mongoose Adapter:
         -   [x] connection
-        -   [ ] listAdapterClass
-    -   [ ] Knex Adapter
+        -   [x] listAdapterClass
+    -   [x] Knex Adapter
         -   [x] connection
-        -   [ ]listAdapterClass
+        -   [x]listAdapterClass
 -   [x] List plugins
 -   [] File Adapter
