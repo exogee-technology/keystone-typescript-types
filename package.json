@@ -1,25 +1,28 @@
 {
-    "name": "keystone-typescript-types",
-    "version": "1.0.2-alpha",
-    "description": "A work in progress repo to get the types for KeystoneJS 5 ready to contribute to Definitely Typed.",
-    "scripts": {
-        "test": "tsc --no-emit"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/TechInSite/keystone-typescript-types.git"
-    },
-    "author": "Kevin Brown",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/TechInSite/keystone-typescript-types/issues"
-    },
-    "homepage": "https://github.com/TechInSite/keystone-typescript-types#readme",
-    "devDependencies": {
-        "@types/express": "^4.17.2",
-        "apollo-server": "^2.9.7",
-        "keystone": "^4.2.1",
-        "knex": "^0.20.1",
-        "pino": "^5.13.5"
-    }
+  "name": "keystone-typescript-types",
+  "version": "1.0.2-alpha",
+  "description": "A work in progress repo to get the types for KeystoneJS 5 ready to contribute to Definitely Typed.",
+  "scripts": {
+    "test": "tsc --no-emit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechInSite/keystone-typescript-types.git"
+  },
+  "author": "Kevin Brown",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TechInSite/keystone-typescript-types/issues"
+  },
+  "homepage": "https://github.com/TechInSite/keystone-typescript-types#readme",
+  "dependencies": {
+    "@types/react": "^16.9.11"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "apollo-server": "^2.9.7",
+    "keystone": "^4.2.1",
+    "knex": "^0.20.1",
+    "pino": "^5.13.5"
+  }
 }
