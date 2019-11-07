@@ -3,8 +3,11 @@
     "version": "1.0.2-alpha",
     "description": "A work in progress repo to get the types for KeystoneJS 5 ready to contribute to Definitely Typed.",
     "scripts": {
-        "test": "./test",
-        "test:package": "dtslint --localTs node_modules/typescript/lib types"
+        "compile-scripts": "tsc -p scripts",
+        "not-needed": "node scripts/not-needed.js",
+        "update-codeowners": "node scripts/update-codeowners.js",
+        "test": "node node_modules/types-publisher/bin/tester/test.js --run-from-definitely-typed",
+        "lint": "dtslint types"
     },
     "repository": {
         "type": "git",
@@ -17,10 +20,8 @@
     },
     "homepage": "https://github.com/TechInSite/keystone-typescript-types#readme",
     "devDependencies": {
-        "@types/express": "^4.17.2",
-        "dtslint": "^1.0.3",
-        "knex": "^0.20.1",
-        "pino": "^5.13.5",
-        "typescript": "^3.7.2"
+        "dtslint": "latest",
+        "prettier": "^1.17.1",
+        "types-publisher": "github:Microsoft/types-publisher#production"
     }
 }
