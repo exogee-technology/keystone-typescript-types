@@ -11,12 +11,8 @@
         "strict": true,
         "target": "esnext",
         "noImplicitAny": true,
-        "baseUrl": "."
+        "baseUrl": ".",
+        "typeRoots": ["types"]
     },
-    "exclude": [
-        "node_modules",
-        "babel.config.js",
-        "metro.config.js",
-        "jest.config.js"
-    ]
+    "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }

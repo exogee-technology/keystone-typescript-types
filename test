@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 for dir in types/*/; do
-  npm t -- "$(basename $dir)" || exit 1;
+  npm run test:package -- "$(basename $dir)" || exit 1;
 done
