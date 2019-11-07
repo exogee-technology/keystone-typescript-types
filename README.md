@@ -104,15 +104,6 @@ These are very rough typings. Contributions are welcomed.
 -   [x] @keystonejs/app-nuxt
 -   [x] @keystonejs/app-static
 
-        FIELD TYPES
-
--   [ ] @keystonejs/fields-auto-increment
--   [ ] @keystonejs/field-content
--   [ ] @keystonejs/fields-datetime-utc
--   [ ] @keystonejs/fields-markdown
--   [ ] @keystonejs/fields-mongoid
--   [ ] @keystonejs/fields-wysiwyg-tinymce
-
         FIELD ADAPTERS
 
 -   [ ] @keystonejs/file-adapters
@@ -126,12 +117,10 @@ These are very rough typings. Contributions are welcomed.
 #### UTILITIES
 
 -   [x] @keystonejs/list-plugins
--   [ ] @keystonejs/apollo-helpers
--   [ ] @create-keystone-app
+-   [x] @keystonejs/apollo-helpers
 -   [x] @keystonejs/email
 -   [x] @keystonejs/logger
 -   [x] @keystonejs/session
--   [ ] @keystonejs/test-utils
 
 #### DATABASE ADAPTERS
 
@@ -141,9 +130,9 @@ These are very rough typings. Contributions are welcomed.
 ### By features
 
 -   [ ] Keystone (in progress)
-    -   [ ] apps
-        -   [ ] admin
-        -   [ ] graphql
+    -   [x] apps
+        -   [x] admin
+        -   [x] graphql
         -   [x] nextjs
         -   [x] nuxtjs
         -   [x] static app
@@ -159,12 +148,11 @@ These are very rough typings. Contributions are welcomed.
 -   [x] Access Control
 -   [x] Query validation
 -   [x] hooks validation
--   [ ] Adapters
--   [] Database adapters
-    -   [ ] Mongoose Adapter:
+-   [x] Database adapters
+    -   [x] Mongoose Adapter:
         -   [x] connection
         -   [x] listAdapterClass
-    -   [ ] Knex Adapter
+    -   [x] Knex Adapter
         -   [x] connection
         -   [x]listAdapterClass
 -   [x] List plugins
