@@ -220,7 +220,7 @@ declare module '@keystonejs/keystone' {
     interface GraphQLExtension<Source = any, Context = any> {
         schema: string;
         resolver: GraphQLFieldResolver<Source, Context>;
-        access: Access;
+        access?: Access;
     }
 
     interface GraphQLExtensionSchema {
