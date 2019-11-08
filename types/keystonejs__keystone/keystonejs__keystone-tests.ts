@@ -68,18 +68,19 @@ keystone.createList('Test', {
 });
 
 keystone.extendGraphQLSchema({});
+
 keystone.extendGraphQLSchema({
-    types: ['hi'],
+    types: [{ type: 'type FooBar { foo: Int, bar: Float }' }],
     queries: [
         {
-            schema: 'some schema',
-            resolver: () => {},
+            schema: 'double(x: Int): Int',
+            resolver: (source, args, context, info) => console.log('ARGS: ', args),
         },
     ],
     mutations: [
         {
-            schema: 'some schema',
-            resolver: () => {},
+            schema: 'double(x: Int): Int',
+            resolver: (source, args, context, info) => console.log('ARGS: ', args),
         },
     ],
 });

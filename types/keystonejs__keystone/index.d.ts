@@ -223,7 +223,7 @@ declare module '@keystonejs/keystone' {
     }
 
     interface GraphQLExtensionSchema {
-        types?: string[];
+        types?: Array<{ type: string }>;
         queries?: GraphQLExtension[];
         mutations?: GraphQLExtension[];
     }
