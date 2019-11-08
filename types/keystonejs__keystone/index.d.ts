@@ -197,9 +197,9 @@ declare module '@keystonejs/keystone' {
         hooks?: Hooks;
     }
 
-    interface GraphQLExtension {
+    interface GraphQLExtension<Source = any, Context = any> {
         schema: string;
-        resolver: GraphQLFieldResolver;
+        resolver: GraphQLFieldResolver<Source, Context>;
     }
 
     interface GraphQLExtensionSchema {
