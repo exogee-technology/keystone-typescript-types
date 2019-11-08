@@ -102,6 +102,8 @@ const apps: BaseApp[] = [
     }),
 ];
 
-keystone.prepare({ apps, dev: process.env.NODE_ENV !== 'production' }).then(async ({ middlewares }) => {
-    await keystone.connect();
-});
+keystone
+    .prepare({ apps, dev: process.env.NODE_ENV !== 'production' })
+    .then(async ({ middlewares }) => {
+        await keystone.connect();
+    });

@@ -76,29 +76,49 @@ declare module '@keystonejs/keystone' {
         context: any; // TODO: use apollo context
         addFieldValidationError: (error: string) => any; // not clear in the documentation
         list: {
-            query: (args: any, context: any, options?: { skipAccessControl: boolean }) => Promise<Record>;
-            queryMany: (args: any, context: any, options?: { skipAccessControl: boolean }) => Promise<Record[]>;
+            query: (
+                args: any,
+                context: any,
+                options?: { skipAccessControl: boolean }
+            ) => Promise<Record>;
+            queryMany: (
+                args: any,
+                context: any,
+                options?: { skipAccessControl: boolean }
+            ) => Promise<Record[]>;
             queryManyMeta: (
                 args: any,
                 context: any,
-                options?: { skipAccessControl: boolean },
+                options?: { skipAccessControl: boolean }
             ) => Promise<{ count: number }>;
             getList: (key: string) => ResolveInputHooksOptions['list']; // TODO: create a List Object and returns it
         };
     }
 
     type Hooks = Partial<{
-        resolveInput: (opts: Omit<ResolveInputHooksOptions, 'addFieldValidationError' | 'updatedItem'>) => any; // TODO: return the same shape as resolvedData
+        resolveInput: (
+            opts: Omit<ResolveInputHooksOptions, 'addFieldValidationError' | 'updatedItem'>
+        ) => any; // TODO: return the same shape as resolvedData
         validateInput: (opts: Omit<ResolveInputHooksOptions, 'updatedItem'>) => void;
         beforeChange: (opts: Omit<ResolveInputHooksOptions, 'addFieldValidationError'>) => void;
         afterChange: (
-            opts: Pick<ResolveInputHooksOptions, 'updatedItem' | 'existingItem' | 'originalInput' | 'context' | 'list'>,
+            opts: Pick<
+                ResolveInputHooksOptions,
+                'updatedItem' | 'existingItem' | 'originalInput' | 'context' | 'list'
+            >
         ) => void;
-        beforeDelete: (opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list'>) => void;
+        beforeDelete: (
+            opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list'>
+        ) => void;
         validateDelete: (
-            opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list' | 'addFieldValidationError'>,
+            opts: Pick<
+                ResolveInputHooksOptions,
+                'existingItem' | 'context' | 'list' | 'addFieldValidationError'
+            >
         ) => void;
-        afterDelete: (opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list'>) => void;
+        afterDelete: (
+            opts: Pick<ResolveInputHooksOptions, 'existingItem' | 'context' | 'list'>
+        ) => void;
     }>;
 
     /**

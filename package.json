@@ -4,6 +4,7 @@
     "description": "A work in progress repo to get the types for KeystoneJS 5 ready to contribute to Definitely Typed.",
     "scripts": {
         "compile-scripts": "tsc -p scripts",
+        "format": "prettier --write 'types/**/*.ts'",
         "not-needed": "node scripts/not-needed.js",
         "update-codeowners": "node scripts/update-codeowners.js",
         "test": "node node_modules/types-publisher/bin/tester/test.js --run-from-definitely-typed --all",
