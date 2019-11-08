@@ -1,6 +1,6 @@
 {
     "name": "keystone-typescript-types",
-    "version": "1.0.3-alpha",
+    "version": "1.0.4-alpha",
     "description": "A work in progress repo to get the types for KeystoneJS 5 ready to contribute to Definitely Typed.",
     "scripts": {
         "compile-scripts": "tsc -p scripts",
