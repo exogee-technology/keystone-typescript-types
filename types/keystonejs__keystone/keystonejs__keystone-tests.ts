@@ -75,12 +75,24 @@ keystone.extendGraphQLSchema({
         {
             schema: 'double(x: Int): Int',
             resolver: (source, args, context, info) => console.log('ARGS: ', args),
+            access: true,
         },
     ],
     mutations: [
         {
             schema: 'double(x: Int): Int',
             resolver: (source, args, context, info) => console.log('ARGS: ', args),
+            access: () => true,
+        },
+        {
+            schema: 'double(x: Int): Int',
+            resolver: (source, args, context, info) => console.log('ARGS: ', args),
+            access: {
+                create: true,
+                read: () => false,
+                update: false,
+                delete: false,
+            },
         },
     ],
 });

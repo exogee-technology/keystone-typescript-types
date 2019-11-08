@@ -56,7 +56,7 @@ declare module '@keystonejs/keystone' {
     type AccessCallback = (context: AuthenticationContext) => boolean | GraphQLWhereClause;
 
     type Access =
-        | boolean // FIXME: it seems to be an access callback instead
+        | boolean // Shorthand documented here: https://www.keystonejs.com/api/access-control#booleans
         | AccessCallback
         | {
               read?: boolean | GraphQLWhereClause | AccessCallback;
@@ -220,6 +220,7 @@ declare module '@keystonejs/keystone' {
     interface GraphQLExtension<Source = any, Context = any> {
         schema: string;
         resolver: GraphQLFieldResolver<Source, Context>;
+        access: Access;
     }
 
     interface GraphQLExtensionSchema {
