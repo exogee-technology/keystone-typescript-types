@@ -10,6 +10,7 @@
 // tslint:disable-next-line:no-single-declare-module
 declare module '@keystonejs/keystone' {
     import { RequestHandler } from 'express';
+    import { GraphQLFieldResolver } from 'graphql';
     import { FieldType, AutoIncrement, CalendarDay } from '@keystonejs/fields';
 
     type KeyValues<Keys extends string = any, Values = any> = { [key in Keys]: Values };
@@ -198,7 +199,7 @@ declare module '@keystonejs/keystone' {
 
     interface GraphQLExtension {
         schema: string;
-        resolver: (args: any) => any; // TODO
+        resolver: GraphQLFieldResolver;
     }
 
     interface GraphQLExtensionSchema {
