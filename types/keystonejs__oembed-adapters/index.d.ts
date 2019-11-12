@@ -1,4 +1,4 @@
-// Type definitions for @keystonejs/fields 5.0
+// Type definitions for @keystonejs/oembed-adapters 5.0
 // Project: https://github.com/keystonejs/keystone
 // Definitions by: Kevin Brown <https://github.com/thekevinbrown>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped

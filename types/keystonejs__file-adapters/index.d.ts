@@ -1,4 +1,4 @@
-// Type definitions for @keystonejs/fields 5.1
+// Type definitions for @keystonejs/file-adapters 5.1
 // Project: https://github.com/keystonejs/keystone
 // Definitions by: Kevin Brown <https://github.com/thekevinbrown>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
