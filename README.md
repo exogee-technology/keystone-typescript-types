@@ -137,14 +137,14 @@ These are very rough typings. Contributions are welcomed.
         -   [x] nuxtjs
         -   [x] static app
     -   [ ] plugins (in progress)
-    -   [ ] adapters
--   [ ] createList
+    -   [x] adapters
+-   [x] createList
     -   [x] fields (simple union)
-    -   [ ] adapter
+    -   [x] adapter
     -   [x] hooks
--   [ ] Authentication Strategies
+-   [x] Authentication Strategies
     -   [x] password
-    -   [ ] passport
+    -   [x] passport
 -   [x] Access Control
 -   [x] Query validation
 -   [x] hooks validation
