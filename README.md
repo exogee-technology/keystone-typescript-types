@@ -154,6 +154,6 @@ These are very rough typings. Contributions are welcomed.
         -   [x] listAdapterClass
     -   [x] Knex Adapter
         -   [x] connection
-        -   [x]listAdapterClass
+        -   [x] listAdapterClass
 -   [x] List plugins
--   [ ] File Adapter
+-   [x] File Adapter
