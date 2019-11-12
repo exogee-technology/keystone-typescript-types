@@ -112,7 +112,7 @@ These are very rough typings. Contributions are welcomed.
         AUTHENTICATION STRATEGIES
 
 -   [x] @keystonejs/auth-password
--   [ ] @keystonejs/auth-passport
+-   [x] @keystonejs/auth-passport
 
 #### UTILITIES
 
@@ -156,4 +156,4 @@ These are very rough typings. Contributions are welcomed.
         -   [x] connection
         -   [x]listAdapterClass
 -   [x] List plugins
--   [] File Adapter
+-   [ ] File Adapter
