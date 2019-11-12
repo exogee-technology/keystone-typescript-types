@@ -106,7 +106,7 @@ These are very rough typings. Contributions are welcomed.
 
         FIELD ADAPTERS
 
--   [ ] @keystonejs/file-adapters
+-   [x] @keystonejs/file-adapters
 -   [ ] @keystonejs/oembed-adapters
 
         AUTHENTICATION STRATEGIES
