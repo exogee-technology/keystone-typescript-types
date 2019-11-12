@@ -17,5 +17,5 @@
             "@keystonejs/keystone": ["keystonejs__keystone"]
         }
     },
-    "files": ["index.d.ts", "keystonejs__file-adapters-tests.ts"]
+    "files": ["index.d.ts", "keystonejs__auth-passport-tests.ts"]
 }
