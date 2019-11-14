@@ -17,7 +17,9 @@ declare module '@keystonejs/keystone' {
 
     class BaseKeystoneAdapter {}
     class BaseAuthStrategy {}
-    class BaseApp {}
+    class BaseApp {
+        build(args: { distDir: string; keystone: Keystone }): Promise<void>;
+    }
 
     interface KeystoneOptions {
         name: string;
