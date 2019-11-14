@@ -9,7 +9,7 @@
 // types with the right package.
 // tslint:disable-next-line:no-single-declare-module
 declare module '@keystonejs/app-graphql' {
-    import { Keystone } from '@keystonejs/keystone';
+    import { Keystone, BaseApp } from '@keystonejs/keystone';
 
     interface GraphQLValidation {
         depthLimit: (limit: number) => any; // TODO: fetch the correct type in apollo server validations
@@ -31,10 +31,9 @@ declare module '@keystonejs/app-graphql' {
         dev?: boolean;
     }
 
-    class GraphQLApp {
+    class GraphQLApp extends BaseApp {
         constructor(opts?: GraphQLAppOptions);
 
-        build(): void;
         prepareMiddleware(options: PrepareMiddlewareOptions): void;
     }
 
